@@ -67,9 +67,9 @@ def test_connection(uri, user, password):
 
 # Construct gmail INSTANCE1
 if __name__ == "__main__":
-    uri = "neo4j+s://6f2b7e4b.databases.neo4j.io"
+    uri = "neo4j+s://???.databases.neo4j.io"
     username = "neo4j"
-    password = "g4ujIOCRsMIVCGOEhDXG0OiK04ZVdTobkfW1fz6yIdI"
+    password = "password"
 
     file_path = '/data1/yuanxujie/KGE-DST/data/knowledge_graph.txt'
 

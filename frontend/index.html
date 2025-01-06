@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>智能翻译</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            text-align: center;
+        }
+        textarea, select {
+            width: 80%;
+            margin: 10px 0;
+            padding: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .output {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <h1>智能翻译</h1>
+    <select id="source-lang">
+        <option value="Chinese">中文</option>
+        <option value="English">English</option>
+    </select>
+    <select id="target-lang">
+        <option value="English">English</option>
+        <option value="Chinese">中文</option>
+        <option value="German">German</option>
+    </select>
+    <textarea id="input-text" placeholder="请输入要翻译的文本"></textarea>
+    <button onclick="translateText()">翻译</button>
+    <div id="output" class="output"></div>
+
+    <script>
+        async function translateText() {
+            const inputText = document.getElementById('input-text').value;
+            const sourceLang = document.getElementById('source-lang').value;
+            const targetLang = document.getElementById('target-lang').value;
+
+            const response = await fetch('http://localhost:5000/translate', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    input_text: inputText,
+                    source_lang: sourceLang,
+                    target_lang: targetLang
+                })
+            });
+
+            const result = await response.json();
+            document.getElementById('output').innerText = result.translation || '翻译失败';
+        }
+    </script>
+</body>
+</html>

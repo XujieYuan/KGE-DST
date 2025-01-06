@@ -1,15 +1,16 @@
 from sentence_transformers import SentenceTransformer
 from langchain.chat_models import ChatOpenAI
-from langchain.schema import SystemMessage, HumanMessage
+from langchain.schema import SystemMessage, AIMessage, HumanMessage
 from llama_cpp import Llama
 from neo4j import GraphDatabase
 import numpy as np
 import pickle
+import re
 
 # Initialize Neo4j
-uri = "neo4j+s://6f2b7e4b.databases.neo4j.io"
+uri = "neo4j+s://???.databases.neo4j.io"
 username = "neo4j"
-password = "g4ujIOCRsMIVCGOEhDXG0OiK04ZVdTobkfW1fz6yIdI"
+password = "password"
 driver = GraphDatabase.driver(uri, auth=(username, password))
 
 # Load entity embeddings
@@ -37,7 +38,7 @@ def chat_llm(prompt, n_gpu_layers=200, n_batch=512, n_ctx=25600, repeat_penalty=
     )
     completion = llm.create_chat_completion(
         messages=[
-            {"role": "system", "content": "You are a helpful AI assistant. Extract the main keyword from the following sentence."},
+            {"role": "system", "content": "You are a helpful AI assistant. Extract the main keyword from the following sentence. Output in 'KEYWORD:...' format"},
             {"role": "user", "content": prompt}
         ],
     )
@@ -84,30 +85,42 @@ def retrieve_context(question):
 def translate(input_text, source_lang, target_lang):
     # Step 1: Extract Keywords
     keywords = chat_llm(input_text)
+    keyword = re.search(r"KEYWORD:(.+)", keywords).group(1).strip()
 
     # Step 2: Retrieve Knowledge Context
-    context = retrieve_context(keywords)
+    context = retrieve_context(keyword)
+    print(f'Context: {context}')
 
     # Step 3: Generate Translation
     if context:
-        evidence = context[0][0]  # Entity name as evidence
+        neighbors = context[0][1]
+        # Select evidence dynamically based on target language
+        evidence = next((neighbor for neighbor, relationship in neighbors if relationship.lower() == target_lang.lower()), "No relevant entity found.")
     else:
         evidence = "No relevant entity found."
 
     translation_prompt = [
         SystemMessage(
             content="You are a multilingual AI assistant. Translate the following sentence while considering the context provided."),
-        HumanMessage(content=f"Source: {input_text}\nEvidence: {evidence}\nTranslate from {source_lang} to {target_lang}.")
+        AIMessage(content=f"Source: {input_text}\nEvidence: {evidence}\nTranslate from {source_lang} to {target_lang}."),
+        HumanMessage(content="Output the final translation result as OUTPUT, as the following format: OUTPUT: translated text.")
     ]
-    translation_response = chat(translation_prompt)
+    translation_response = chat(translation_prompt).content
+
+    # Extract translation using regex
+    match = re.search(r"OUTPUT:(.+)", translation_response)
+    if match:
+        formatted_translation = match.group(1).strip()
+    else:
+        formatted_translation = "Translation not found in expected format."
 
     print("Input Sentence:", input_text)
-    print("Extracted Keywords:", keywords)
+    print("Extracted Keywords:", keyword)
     print("Evidence Entity:", evidence)
-    print("Translation:", translation_response)
+    print("Translation:", formatted_translation)
 
 if __name__ == "__main__":
     input_text = "格林-巴利综合征是一种急性自身免疫性周围神经系统疾病"
     source_lang = "Chinese"
-    target_lang = "German"
+    target_lang = "French"
     translate(input_text, source_lang, target_lang)
