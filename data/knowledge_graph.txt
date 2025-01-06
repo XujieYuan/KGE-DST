@@ -1,0 +1,100 @@
+阿米巴性肺炎	English	Amoebic pneumonia
+阿米巴性肺炎	Japanese	アメーバ性肺炎
+阿米巴性肺炎	Korean	아메바성 폐렴
+阿米巴性肺炎	French	Pneumonie amibienne
+阿米巴性肺炎	German	Amöbenpneumonie
+卡萨格兰病	English	Chagas disease
+卡萨格兰病	Japanese	シャーガス病
+卡萨格兰病	Korean	차가스병
+卡萨格兰病	French	Maladie de Chagas
+卡萨格兰病	German	Chagaskrankheit
+杜氏肌营养不良症	English	Duchenne muscular dystrophy
+杜氏肌营养不良症	Japanese	デュシェンヌ型筋ジストロフィー
+杜氏肌营养不良症	Korean	뒤센 근이영양증
+杜氏肌营养不良症	French	Dystrophie musculaire de Duchenne
+杜氏肌营养不良症	German	Duchenne-Muskeldystrophie
+法洛四联症	English	Tetralogy of Fallot
+法洛四联症	Japanese	ファロー四徴症
+法洛四联症	Korean	팔로 4요인 심장병
+法洛四联症	French	Tétralogie de Fallot
+法洛四联症	German	Tetralogie von Fallot
+格林-巴利综合征	English	Guillain-Barré syndrome
+格林-巴利综合征	Japanese	ギラン・バレー症候群
+格林-巴利综合征	Korean	길랑-바레 증후군
+格林-巴利综合征	French	Syndrome de Guillain-Barré
+格林-巴利综合征	German	Guillain-Barré-Syndrom
+哈金森病	English	Huntington's disease
+哈金森病	Japanese	ハンチントン病
+哈金森病	Korean	헌팅턴병
+哈金森病	French	Maladie de Huntington
+哈金森病	German	Huntington-Krankheit
+结节性硬化症	English	Tuberous sclerosis
+结节性硬化症	Japanese	結節性硬化症
+结节性硬化症	Korean	결절성 경화증
+结节性硬化症	French	Sclérose tubéreuse
+结节性硬化症	German	Tuberöse Sklerose
+莱姆病	English	Lyme disease
+莱姆病	Japanese	ライム病
+莱姆病	Korean	라임병
+莱姆病	French	Maladie de Lyme
+莱姆病	German	Lyme-Borreliose
+马凡综合征	English	Marfan syndrome
+马凡综合征	Japanese	マルファン症候群
+马凡综合征	Korean	마르판 증후군
+马凡综合征	French	Syndrome de Marfan
+马凡综合征	German	Marfan-Syndrom
+内皮素诱导的肺动脉高压	English	Endothelin-induced pulmonary hypertension
+内皮素诱导的肺动脉高压	Japanese	エンドセリン誘導性肺高血圧
+内皮素诱导的肺动脉高压	Korean	내피소 induced 폐동맥 고혈압
+内皮素诱导的肺动脉高压	French	Hypertension pulmonaire induite par l'endothéline
+内皮素诱导的肺动脉高压	German	Endothelininduzierte pulmonale Hypertonie
+普瑞巴林	English	Pregabalin
+普瑞巴林	Japanese	プレガバリン
+普瑞巴林	Korean	프레가발린
+普瑞巴林	French	Prégabaline
+普瑞巴林	German	Pregabalin
+神经纤维瘤病	English	Neurofibromatosis
+神经纤维瘤病	Japanese	神経線維腫症
+神经纤维瘤病	Korean	신경섬유종증
+神经纤维瘤病	French	Neurofibromatose
+神经纤维瘤病	German	Neurofibromatose
+脊髓性肌萎缩症	English	Spinal muscular atrophy
+脊髓性肌萎缩症	Japanese	脊髄性筋萎縮症
+脊髓性肌萎缩症	Korean	척수성 근위축증
+脊髓性肌萎缩症	French	Atrophie musculaire spinale
+脊髓性肌萎缩症	German	Spinale Muskelatrophie
+特发性肺纤维化	English	Idiopathic pulmonary fibrosis
+特发性肺纤维化	Japanese	特発性肺線維症
+特发性肺纤维化	Korean	특발성 폐섬유증
+特发性肺纤维化	French	Fibrose pulmonaire idiopathique
+特发性肺纤维化	German	Idiopathische pulmonale Fibrose
+威廉姆斯综合征	English	Williams syndrome
+威廉姆斯综合征	Japanese	ウィリアムズ症候群
+威廉姆斯综合征	Korean	윌리엄스 증후군
+威廉姆斯综合征	French	Syndrome de Williams
+威廉姆斯综合征	German	Williams-Syndrom
+肝豆状核变性	English	Wilson's disease
+肝豆状核变性	Japanese	ウィルソン病
+肝豆状核变性	Korean	윌슨병
+肝豆状核变性	French	Maladie de Wilson
+肝豆状核变性	German	Wilson-Krankheit
+库欣综合征	English	Cushing's syndrome
+库欣综合征	Japanese	クッシング症候群
+库欣综合征	Korean	쿠싱 증후군
+库欣综合征	French	Syndrome de Cushing
+库欣综合征	German	Cushing-Syndrom
+莱伯遗传性运动失调	English	Hereditary ataxia
+莱伯遗传性运动失调	Japanese	遺伝性運動失調
+莱伯遗传性运动失调	Korean	유전성 운동실조
+莱伯遗传性运动失调	French	Ataxie héréditaire
+莱伯遗传性运动失调	German	Hereditäre Ataxie
+梅尼埃病	English	Meniere's disease
+梅尼埃病	Japanese	メニエール病
+梅尼埃病	Korean	메니에르병
+梅尼埃病	French	Maladie de Ménière
+梅尼埃病	German	Menière-Krankheit
+纳乔氏症	English	Niemann-Pick disease
+纳乔氏症	Japanese	シャーマン・ピック病
+纳乔氏症	Korean	네임만-픽 병
+纳乔氏症	French	Maladie de Niemann-Pick
+纳乔氏症	German	Niemann-Pick-Krankheit
