@@ -1,4 +1,5 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_from_directory
+from flask_cors import CORS
 from sentence_transformers import SentenceTransformer
 from langchain.chat_models import ChatOpenAI
 from langchain.schema import SystemMessage, AIMessage, HumanMessage
@@ -9,15 +10,26 @@ import pickle
 import re
 
 app = Flask(__name__)
+CORS(app)  # 允许所有来源的跨域请求
+
+# 添加静态文件托管代码
+@app.route('/')
+def serve_index():
+    return send_from_directory('../frontend', 'index.html')
+
+@app.route('/<path:path>')
+def serve_static_file(path):
+    return send_from_directory('../frontend', path)
+
 
 # Initialize Neo4j
-uri = "neo4j+s://6f2b7e4b.databases.neo4j.io"
+uri = "neo4j+s://???.databases.neo4j.io"
 username = "neo4j"
-password = "g4ujIOCRsMIVCGOEhDXG0OiK04ZVdTobkfW1fz6yIdI"
+password = "password"
 driver = GraphDatabase.driver(uri, auth=(username, password))
 
 # Load entity embeddings
-with open('./data/entity_embeddings.pkl', 'rb') as f:
+with open('/data1/yuanxujie/KGE-DST/data/entity_embeddings.pkl', 'rb') as f:
     entity_embeddings = pickle.load(f)
 
 entity_embeddings_emb = np.array(entity_embeddings["embeddings"])
@@ -60,22 +72,30 @@ def cosine_similarity_manual(x, y):
     return sim
 
 def get_entity_neighbors(entity_name):
-    with driver.session() as session:
-        query = """
-            MATCH (e:Entity)-[r]->(n)
-            WHERE e.name = $entity_name
-            RETURN n.name AS neighbor, type(r) AS relationship_type
-        """
-        result = session.run(query, entity_name=entity_name)
-        return [(record["neighbor"], record["relationship_type"]) for record in result]
+    try:
+        with driver.session() as session:
+            query = """
+                MATCH (e:Entity)-[r]->(n)
+                WHERE e.name = $entity_name
+                RETURN n.name AS neighbor, type(r) AS relationship_type
+            """
+            result = session.run(query, entity_name=entity_name)
+            return [(record["neighbor"], record["relationship_type"]) for record in result]
+    except Exception as e:
+        print(f"Neo4j error: {e}")
+        return []
 
-def retrieve_context(keyword):
-    input_embeddings = encode_text(keyword)
+def retrieve_context(question):
+    input_embeddings = encode_text(question)
     cos_similarities = np.array([cosine_similarity_manual(input_embeddings, emb) for emb in entity_embeddings_emb])
-    top_index = np.argmax(cos_similarities)
-    entity = entity_names[top_index]
-    neighbors = get_entity_neighbors(entity)
-    return entity, neighbors
+    top_indices = np.argsort(cos_similarities)[::-1][:1]  # Top match
+
+    context = []
+    for idx in top_indices:
+        entity = entity_names[idx]
+        neighbors = get_entity_neighbors(entity)
+        context.append((entity, neighbors))
+    return context
 
 @app.route('/translate', methods=['POST'])
 def translate():
@@ -122,4 +142,4 @@ def translate():
     })
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=5000, debug=True)
