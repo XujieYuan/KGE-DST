@@ -65,7 +65,7 @@ project/
 
 Below is a demonstration screenshot of the project:
 
-![Project Screenshot](/data1/yuanxujie/KGE-DST/screenshot.jpg)
+![https://github.com/XujieYuan/KGE-DST/blob/main/screenshot.jpg](https://github.com/XujieYuan/KGE-DST/blob/main/screenshot.jpg)
 
 ## Author Information
 Author: Yuanxj  
