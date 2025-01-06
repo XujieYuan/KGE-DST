@@ -63,23 +63,10 @@ project/
 
 ## Demonstration
 
-Below is a demonstration of the project:
+Below is a demonstration screenshot of the project:
 
-### Video Demonstration
-If your Markdown renderer supports video embedding, you can include the `.mp4` file directly:
-
-```html
-<video controls width="600">
-  <source src="/data1/yuanxujie/KGE-DST/demo.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
-```
-
-### GIF Alternative
-If your Markdown renderer does not support video embedding, consider converting your `.mp4` file to a `.gif` and embedding it:
-
-![Project Demo](path_to_your_demo.gif)
+![Project Screenshot](/data1/yuanxujie/KGE-DST/screenshot.jpg)
 
 ## Author Information
-Author: Xujie Yuan
+Author: Yuanxj  
 Copyright © 2025
