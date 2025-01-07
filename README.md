@@ -68,5 +68,5 @@ Below is a demonstration screenshot of the project:
 ![https://github.com/XujieYuan/KGE-DST/blob/main/screenshot.jpg](https://github.com/XujieYuan/KGE-DST/blob/main/screenshot.jpg)
 
 ## Author Information
-Author: Yuanxj  
+Author: Xujie Yuan  
 Copyright © 2025
